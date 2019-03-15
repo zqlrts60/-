@@ -1,0 +1,512 @@
+<style>
+    .modal-content .modal-header {
+
+        background: #243456;
+
+    }
+
+    .modal-backdrop {
+        z-index: 1;
+    }
+
+    .modal {
+        z-index: 200000;
+    }
+
+    .middlediv {
+        /* width: 1720px; */
+        width: 100%;
+        min-height: 856px;
+        float: left;
+        background-color: #121420;
+    }
+
+    #equipTable {
+        border: none;
+    }
+
+    /* 表格 */
+
+    #equipTable tr>td,
+    #equipTable th {
+        color: azure;
+        /* background-color: #222941; */
+        height: 36px;
+        /* border: 1px solid #3C73F3 !important; */
+        border: none !important;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd) {
+        background-color: #1B2A48;
+        color: azure;
+    }
+
+    .table-striped>tbody>tr:nth-child(even) {
+        background-color: #243456;
+        color: azure;
+    }
+
+
+    #equipTable thead th {
+        border-color: '#3C73F3';
+        background-color: #0C2A5C !important;
+    }
+
+
+    #equipTable thead th {
+        border-color: '#3C73F3';
+        background-color: #27385D !important;
+    }
+
+
+    #equipTable {
+        margin-top: 20px;
+        margin-left: 10px;
+        width: 98.8%;
+        /* width: 1700px; */
+    }
+
+    .botTop {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        height: 50px;
+        margin-top: 4px;
+        background-color: #27385D;
+    }
+
+    .searchInputBox {
+        height: 50px;
+    }
+
+    .slv {
+        float: left;
+        color: #fff;
+        margin: 10px;
+        width: 11%;
+        height: 30px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 15px;
+        background-color: #1B2A48;
+    }
+
+    .searchInput {
+        background-color: #1B2A48;
+        color: #fff;
+        outline: none;
+        border: none;
+        height: 30px;
+        width: 11%;
+        margin: 10px;
+        margin-left: 15px;
+        float: left;
+    }
+
+
+    #cbtn,
+    #qbtn {
+        float: left;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        color: #fff;
+        line-height: 30px;
+        font-size: 14px;
+        border-radius: 4px;
+        background-color: #2e4a91;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    #qbtn {
+        background-color: #58A0DC;
+    }
+
+    #add_Thr {
+        margin: 10px;
+        height: 30px;
+        float: left;
+        margin: 10px;
+        /* height: 30px; */
+        /* float: left; */
+        font-size: 18px;
+        padding: 2px 12px;
+    }
+
+    #changePollution {
+        width: 80px;
+        height: 26px;
+        /* line-height: 26px; */
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        background-color: #318158;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 26px;
+    }
+
+    #slvThr {
+        position: absolute;
+        left: 130px;
+        top: 15px;
+        width: 120px;
+        height: 30px;
+        font-size: 14px;
+        z-index: 9999999999999;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background-color: rgba(16, 38, 81, 0.15);
+        cursor: pointer;
+    }
+
+    #slvThr option {
+        background-color: rgba(16, 38, 81);
+    }
+
+    /* 分页按钮样式覆盖 */
+
+    .pagination-detail {
+        display: none;
+
+    }
+
+    .pagination {
+        margin-right: 700px;
+        /* margin: 10px auto; */
+        width: 385px;
+    }
+
+    .pagination>ul {
+        margin: 0;
+        width: 385px;
+        /* background-color: #38436E; */
+    }
+
+    .pagination>li>a,
+    .pagination>li>span {
+        color: #94A4C5;
+        background: none;
+        /* background-color: #1B2A48; */
+        border-color: #3C73F3;
+        border: none;
+    }
+
+    .pagination>li>a:hover {
+        /* background: none; */
+        background-color: #1B2A48;
+        border-color: #3C73F3;
+        border: none;
+    }
+
+    .pagination>.active>a,
+    .pagination>.active>a:hover {
+        background-color: #27385D;
+        border: none;
+    }
+
+    .pagination>.disabled>a {
+        background: none;
+        border-color: #3C73F3;
+        border: none;
+    }
+
+    /* bootstrap-table 样式覆盖 */
+
+    .fixed-table-body {
+        overflow: hidden;
+    }
+
+    .fixed-table-loading {
+        background-color: #171C2F;
+    }
+
+    .fixed-table-container {
+
+        border: none;
+
+    }
+
+    ::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: #fff;
+    }
+
+    :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #fff;
+    }
+
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #fff;
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #fff;
+    }
+
+    /* 操作按钮 */
+
+    #editDeviceBtn {
+        width: 60px;
+        height: 30px;
+        display: inline-block;
+        /* line-height: 26px; */
+        color: white;
+        font-size: 16px;
+        padding: 4px 12px;
+        text-align: center;
+        background-color: #318158;
+        border-radius: 4px;
+        cursor: pointer;
+        /* margin-left: 26px; */
+    }
+</style>
+
+<div class="wrapper view-container">
+
+    <div class="main-warp clear">
+
+        <div class="middlediv">
+
+            <table id="equipTable" class="table-no-bordered table table-striped"></table>
+        </div>
+
+    </div>
+    <!--------end-main-warp-------->
+</div>
+
+
+
+<!-- 修改/新增--Modal -->
+<div class="modal fade" id="editModalDev" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    阈值
+                </h4>
+            </div>
+            <h2 class="informError" style="text-align: center;color: red;font-size: 16px;margin-bottom: 0;"></h2>
+            <div class="modal-body">
+                <div class="input-group" style="margin-top: 20px;">
+                    <span class="input-group-addon">设备状态</span>
+                    <select name="" id="deviceStatus" class="form-control" aria-describedby="sizing-addon2">
+                        <option value="1">正常</option>
+                        <option value="2">故障</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="sureEditDevice">
+                    确认
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        var oInit = new Object();
+        //初始化子表格(无线循环)
+        oInit.InitSubTable = function (index, row, $detail) {
+            var parentid = row.MENU_ID;
+            var cur_table = $detail.html('<table></table>').find('table');
+            $(cur_table).bootstrapTable({
+                url: '/api/MenuApi/GetChildrenMenu',
+                method: 'get',
+                queryParams: { strParentID: parentid },
+                ajaxOptions: { strParentID: parentid },
+                clickToSelect: true,
+                detailView: true,//父子表
+                uniqueId: "MENU_ID",
+                pageSize: 10,
+                pageList: [10, 25],
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: 'MENU_NAME',
+                    title: '菜单名称'
+                }, {
+                    field: 'MENU_URL',
+                    title: '菜单URL'
+                }, {
+                    field: 'PARENT_ID',
+                    title: '父级菜单'
+                }, {
+                    field: 'MENU_LEVEL',
+                    title: '菜单级别'
+                },],
+                //无线循环取子表，直到子表里面没有记录
+                onExpandRow: function (index, row, $Subdetail) {
+                    oInit.InitSubTable(index, row, $Subdetail);
+                }
+            });
+        };
+        var deviceId = ''
+        // 确认修改 
+        $('#sureEditDevice').unbind('click').click(function () {
+            $.ajax({
+                url: baseUrl + "/data/updateDevices",
+                type: 'get',
+                data: {
+                    id: deviceId,
+                    status: $('#deviceStatus').val(),
+                },
+                success: function (res) {
+                    if (res.message == 'success') {
+                        $('#editModalDev').modal('hide')
+                        makeTableDevice()
+                    } else {
+                        $(".informError").text("修改失败");
+                    }
+                },
+                error: function () {
+                    $(".informError").text("网络错误");
+                }
+            })
+        })
+
+
+
+
+        window.operateEvents = {
+            // 修改 开
+            "click #editDeviceBtn": function (e, value, row, index) {
+                deviceId = row.id
+                $('#deviceStatus').val(row.status)
+                $('#editModalDev').modal('show')
+
+
+            }
+        }
+
+        makeTableDevice()
+
+
+        // type
+        function makeTableDevice() {
+            //销毁表
+            $("#equipTable").bootstrapTable('destroy');
+            $('#equipTable').bootstrapTable({
+                url: baseUrl + "/data/getAllDevices",
+                method: "get",
+                contentType: "application/x-www-form-urlencoded",
+                queryParams: function (queryParams) {
+                    var data = {}
+
+                    // data.pageNum = queryParams.pageNumber;
+                    // data.pageSize = queryParams.pageSize;
+                    return data;
+                },
+                queryParamsType: " limit",
+                // paginationDetailHAlign: "right",
+                paginationPreText: "上一页",
+                paginationNextText: "下一页",
+                sidePagination: "server",
+                // sidePagination: "client",
+                idField: 'id',  //指定主键列
+                uniqueId: 'RoleId',
+                detailView: true,//父子表
+                responseHandler: function (res) {
+                    return {
+                        // 列数据
+                        rows: res.data,
+                        // total: res.data
+                    }
+                },
+                striped: false, //隔行变色
+                pagination: true, //是否显示分页（*）
+                pageNumber: 1, //初始化加载第一页，默认第一页
+                pageSize: 16, //每页的记录行数（*）
+                pageList: [4, 10, 25, 50, 100], //每页可显示个数的筛选
+                columns: [
+                    {
+                        title: '设备名称',
+                        field: 'name',
+                        align: 'center',
+                        valign: 'middle',
+
+                    },
+                    {
+                        title: '设备号',
+                        field: 'number',
+                        align: 'center',
+                        valign: 'middle',
+
+                    },
+                    {
+                        title: '设备状态',
+                        field: 'status',
+                        align: 'center',
+                        valign: 'middle',
+                        formatter: function (params) {
+                            console.log(params);
+                            if (params == 0) {
+                                return '离线'
+                            } else if (params == 1) {
+                                return '正常'
+                            } else {
+                                return '故障'
+                            }
+                        }
+                    },
+
+
+                    {
+                        field: 'operate',
+                        title: '操作',
+                        align: 'center',
+                        valign: 'middle',
+                        events: operateEvents,
+                        formatter: operateFormatter
+                    }
+
+
+                ],
+                //注册加载子表的事件。注意下这里的三个参数！
+                onExpandRow: function (index, row, $detail) {
+                    oInit.InitSubTable(index, row, $detail);
+                },
+
+                showExport: true,              //是否显示导出按钮(此方法是自己写的目的是判断终端是电脑还是手机,电脑则返回true,手机返回falsee,手机不显示按钮)
+                exportDataType: "all",              //basic', 'all', 'selected'.
+                exportTypes: ['excel'],	    //导出类型
+                exportButton: $('#table-export'),     //为按钮btn_export  绑定导出事件  自定义导出按钮(可以不用)
+                exportOptions: {
+                    //ignoreColumn: [0,0],            //忽略某一列的索引
+                    fileName: '数据导出',              //文件名称设置
+                    worksheetName: 'Sheet1',          //表格工作区名称
+                    tableName: '商品数据表',
+                    excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+                    //onMsoNumberFormat: DoOnMsoNumberFormat
+                }
+
+            })
+            function operateFormatter(value, row, index) {//赋予的参数
+                return [
+                    '<a class="btn "  href="#" id="editDeviceBtn" >修改</a>',
+
+                ].join('');
+            }
+
+        }
+    })
+</script>
